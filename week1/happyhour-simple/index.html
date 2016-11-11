@@ -2,8 +2,8 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<meta name="description" content="Happy Hour App - How about a drink!?">
-		<meta name="keywords" content="happy hour, drink, beers">
+		<meta name="description" content="Rock Paper Sissors?">
+		<meta name="keywords" content="Rock Paper Sissors">
 
 		<title>Happy Hour</title>
 
@@ -13,34 +13,57 @@
 
 		<script>
 
-			// Our List of Bars
-			var bars = [
-				'Siggys',
-				'Blind Tiger',
-				'Zum Schneider',
-				'One Month',
-				'Home Sweet Home',
-				'Union Pool'
+			// Our List choices
+			var gestures = [
+				'Rock',
+				'Paper',
+				'Sissors'
 			];
 
-			// Our List of Friends
-			var friends = [
-				'Mattan',
-				'Chris',
-				'Lee',
-				'Casey',
-				'that girl you forgot to text back',
-				'your bff',
-				'Kayne West'
-			];
 
-			var randomNumber = Math.floor(Math.random()*bars.length);
+			var firstChoice = prompt("Player 1: Pick a number!")
+			var firstRandomNumber = (Math.floor(Math.random()* firstChoice)) % 3;
+			var firstAction = gestures[firstRandomNumber];
 
-			var barname = bars[randomNumber];
-			var friendname = friends[randomNumber];
+			var secondChoice = prompt("Player 2: Pick a number!")
+			var secondRandomNumber = (Math.floor(Math.random()* firstChoice)) % 3;
+			var secondAction = gestures[secondRandomNumber];
 
-			document.write("How about you go to <strong>" + barname + "</strong> with <strong>" + friendname + "</strong>?");
+			if (isNaN(firstRandomNumber) === false && isNaN(secondRandomNumber) === false){
+				document.write("<p> Player 1 chooses " + firstAction + "</p>");
+				document.write("<p>Player 2 chooses " + secondAction + "</p>");
 
+				if (firstAction === secondAction){
+					alert("Users have tied. Please refresh your page and try again");
+				}
+				else if (firstAction === 'Rock' && secondAction === 'Sissors')
+				{
+					alert("Rock beats Sissors. Player 1 wins");
+				}
+				else if (secondAction === 'Rock' && firstAction === 'Sissors'){
+					alert("Rock beats Sissors. Player 2 wins");
+				}
+				else if (firstAction === 'Paper' && secondAction === 'Rock')
+				{
+					alert("Paper beats Rock. Player 1 wins");
+				}
+				else if (secondAction === 'Rock' && firstAction === 'Paper'){
+					alert("Paper beats Rock. Player 2 wins");
+				}
+				else if (firstAction === 'Paper' && secondAction === 'Sissors')
+				{
+					alert("Sissors beats Paper. Player 1 wins");
+				}
+				else if (secondAction === 'Sissors' && firstAction === 'Paper'){
+					alert("Sissors beats Paper. Player 2 wins");
+				}
+				else{
+					alert("Something has gone wrong. Please refresh and try again!");
+				}
+			}
+			else{
+				alert("Player 1 or Player 2 did not provide a number. Please try again");
+			}
 
 		</script>
 	</head>
