@@ -17,7 +17,7 @@
 			var gestures = [
 				'Rock',
 				'Paper',
-				'Sissors'
+				'Scissors'
 			];
 
 
@@ -36,12 +36,12 @@
 				if (firstAction === secondAction){
 					alert("Users have tied. Please refresh your page and try again");
 				}
-				else if (firstAction === 'Rock' && secondAction === 'Sissors')
+				else if (firstAction === 'Rock' && secondAction === 'Scissors')
 				{
-					alert("Rock beats Sissors. Player 1 wins");
+					alert("Rock beats Scissors. Player 1 wins");
 				}
-				else if (secondAction === 'Rock' && firstAction === 'Sissors'){
-					alert("Rock beats Sissors. Player 2 wins");
+				else if (secondAction === 'Rock' && firstAction === 'Scissors'){
+					alert("Rock beats Scissors. Player 2 wins");
 				}
 				else if (firstAction === 'Paper' && secondAction === 'Rock')
 				{
@@ -50,12 +50,12 @@
 				else if (secondAction === 'Rock' && firstAction === 'Paper'){
 					alert("Paper beats Rock. Player 2 wins");
 				}
-				else if (firstAction === 'Paper' && secondAction === 'Sissors')
+				else if (firstAction === 'Paper' && secondAction === 'Scissors')
 				{
-					alert("Sissors beats Paper. Player 1 wins");
+					alert("Scissors beats Paper. Player 1 wins");
 				}
-				else if (secondAction === 'Sissors' && firstAction === 'Paper'){
-					alert("Sissors beats Paper. Player 2 wins");
+				else if (secondAction === 'Scissors' && firstAction === 'Paper'){
+					alert("Scissors beats Paper. Player 2 wins");
 				}
 				else{
 					alert("Something has gone wrong. Please refresh and try again!");
