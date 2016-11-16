@@ -7,10 +7,22 @@
   <body>
 
   <h1> I'm Mr. Javascript </h1>
-  <a href='#'>Hey Javacript, how ya feeling? </a>
+  <a href='#' id = "reset">Reset</a>
+  <a href='#' class="howareyou">Hey Javacript, how ya feeling? </a>
   </body>
   <script type = "text/javascript">
-      var a = document.querySelector("a");
+
+      var reset = document.getElementById("reset");
+      reset.addEventListener('click', function(){
+
+          var h1 = document.querySelector("h1");
+          h1.innerText = "I'm Mr Javascript";
+
+      });
+
+
+
+      var a = document.getElementsByClassName("howareyou");
       a.addEventListener('click', function(){
 
           var h1 = document.querySelector("h1");
