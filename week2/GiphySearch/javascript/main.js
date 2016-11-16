@@ -26,8 +26,11 @@ GiphyAJAXCall.addEventListener('load', function(e){
 //show me the gifs
 function pushtoDOM(input){
  var response =  JSON.parse[input];
- var imageUrl = response.data[0].images.fixed_height_url;
-var container = document.querySelector(".js-container");
-container.innerHTML = "<img src=" + imgUrl +"/>";
+ var imageUrls = response.data;
+ imageUrls.forEach(function(image){
+    var src = image.images.fixed_heigh.url;
+    var container = document.querySelector(".js-container");
+    container.innerHTML += container.innerHTML + "<img src='" + src +"'/>";
+ });
 
 }
