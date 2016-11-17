@@ -8,7 +8,7 @@ document.querySelector(".js-go").addEventListener("click", function(){
 
 document.querySelector(".js-userinput").addEventListener("keyup", function(){
   var input = document.querySelector("input").value;
-  if(e.which == 13){
+  if(e.which === 13){
     pushtoDOM(input);
   }
 });
@@ -25,12 +25,22 @@ GiphyAJAXCall.addEventListener('load', function(e){
 
 //show me the gifs
 function pushtoDOM(input){
- var response =  JSON.parse[input];
- var imageUrls = response.data;
- imageUrls.forEach(function(image){
-    var src = image.images.fixed_heigh.url;
-    var container = document.querySelector(".js-container");
-    container.innerHTML += container.innerHTML + "<img src='" + src +"'/>";
- });
+var response =  JSON.parse(input);
+
+var imageUrls = response.data;
+imageUrls.forEach(function(image){
+  var src = image.images.fixed_height.url;
+  var container = document.querySelector(".js-container");
+  container.innerHTML += "<img src=\"" + src + "\">";
+
+});
+
+
+ //var imageUrls = response.data;
+ //imageUrls.forEach(function(image){
+   // var src = image.images.fixed_height.url;
+    //var container = document.querySelector(".js-container");
+    //container.innerHTML += container.innerHTML + "<img src='" + src +"'/>";
+ //});
 
 }
