@@ -21,6 +21,11 @@ document.querySelector(".js-userinput").addEventListener("keyup", function(e){
   }
 });
 
+
+//add a function when hitting the stop button
+
+
+
 //do the data stuff with the api
 
  function searchGiphy(input){
@@ -43,6 +48,7 @@ function pushtoDOM(input){
   var imageUrls = response.data;
   imageUrls.forEach(function(image){
     var src = image.images.fixed_height.url;
+    //instead of adding, play with them one after another
     container.innerHTML += "<img src=\"" + src + "\">";
   });
 }
