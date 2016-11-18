@@ -36,55 +36,24 @@ document.querySelector("#stop").addEventListener("click", function(){
   });
  }
 
-//
-//function ChangePhoto(image){
-  //console.log(image);
-  //container.innerHTML = '';
-  //console.log("I cleared the inner");
-  //var src = image.images.fixed_height.url;
-  //container.innerHTML = "<img src=\"" + src + "\">"
-  //console.log("I added an image");
-//}
+
 
 
 //show me the gifs
 function pushtoDOM(input){
   var response =  JSON.parse(input);
   var container = document.querySelector(".js-container");
-  var data = response.data;
-  var imageUrls = [];
-  var i = 0;
-  data.forEach(function(image){
-   imageUrls[i] = image.images.fixed_height.url;
-   i++;
+  var imageUrls = response.data;
+  imageUrls.forEach(function(image){
+    var src = image.images.fixed_height.url;
+    container.innerHTML += "<img src=\"" + src + "\">";
   });
-  setInterval(changeImage(0, imageUrls),10000);
 
-  }
-
-  function changeImage(index,array){
-    container.innerHTML = "<img src=\"" + array[index] + "\">";
-    index++;
-  }
+}
 
 
 
-  //while (document.getElementById("container").classList.contains('active')){
-  //if (document.getElementById("container").classList.contains('active')){
-    // imageUrls.forEach(function(image){
-      //  console.log(container.innerHTML);
-        //container.innerHTML = '';
-        //var src = image.images.fixed_height.url;
-        //setTimeout(function(){
-          //container.innerHTML = "<img src=\"" + src + "\">"
-        //},100000);
-        //console.log("I timed out");
-   // });
-  //}
-  //setTimeout(AddPhoto(image,10000));
 
-
-  //}
 
 
 
