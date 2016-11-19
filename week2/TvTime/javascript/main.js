@@ -44,11 +44,31 @@ function pushtoDOM(input){
   var response =  JSON.parse(input);
   var container = document.querySelector(".js-container");
   var imageUrls = response.data;
+  var imageArray = [];
+  //imageUrls.forEach(function(image){
+    //var src = image.images.fixed_height.url;
+    //container.innerHTML += "<img src=\"" + src + "\">";
+  //});
   imageUrls.forEach(function(image){
     var src = image.images.fixed_height.url;
-    container.innerHTML += "<img src=\"" + src + "\">";
+    imageArray.push(src);
   });
-
+  //take values in ImageUrls and iterate over them, displaying them on the dom in a row
+  for(i = 0; i <= imageArray.length; i++){
+    (function(i){
+        setTimeout(function(){
+            console.log(imageArray[0]);
+            //if classname is active
+            if (document.getElementById("container").className = "active"){
+            //clear innerHtml
+            container.innerHTML = '';
+            console.log(container.innerHtml);
+            //push imageurls[i] to container
+            container.innerHTML = "<img src=\"" + imageArray[i] + "\">";
+            console.log(container.innerHTML);
+        }}, 10000 * i);
+    }(i));
+}
 }
 
 
