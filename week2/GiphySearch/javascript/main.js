@@ -1,5 +1,4 @@
-//grab the input
-
+//grab the input when a user clicks the "Search" button
 document.querySelector(".js-go").addEventListener("click", function(){
   var node = document.getElementsByClassName("js-container")[0];
   while (node.hasChildNodes()) {
@@ -10,6 +9,7 @@ document.querySelector(".js-go").addEventListener("click", function(){
 });
 
 
+//grabs the input when a user hits the enter button
 document.querySelector(".js-userinput").addEventListener("keyup", function(e){
   var input = document.querySelector("input").value;
   if(e.which === 13){
@@ -21,10 +21,8 @@ document.querySelector(".js-userinput").addEventListener("keyup", function(e){
   }
 });
 
-//do the data stuff with the api
-
+// send the request to the giphy api
  function searchGiphy(input){
-  console.log(input + "in search");
   var url = "http://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=dc6zaTOxFJmzC";
   var GiphyAJAXCall = new XMLHttpRequest();
   GiphyAJAXCall.open('GET', url);
@@ -36,7 +34,7 @@ document.querySelector(".js-userinput").addEventListener("keyup", function(e){
  }
 
 
-//show me the gifs
+// sends the gifs to the DOM
 function pushtoDOM(input){
   var response =  JSON.parse(input);
   var container = document.querySelector(".js-container");
