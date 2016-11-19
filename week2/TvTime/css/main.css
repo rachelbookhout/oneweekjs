@@ -17,7 +17,7 @@ body {
 }
 
 .container-button {
-	width: 10%;
+	width: 20%;
 	display: inline-block;
 	padding: 20px;
 	background-color: green;
@@ -34,4 +34,9 @@ body {
 	display: block;
 	float: left;
 	margin-right:3%;
+}
+
+img {
+ height: 50%;
+ width: 50%;
 }

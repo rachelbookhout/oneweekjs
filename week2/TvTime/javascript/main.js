@@ -16,11 +16,11 @@ document.querySelector(".js-userinput").addEventListener("keyup", function(e){
 });
 
 //add a function when hitting the stop button
-document.querySelector("#stop").addEventListener("click", function(){
-  document.getElementById('container').classList.remove('active');
+//document.querySelector("#stop").addEventListener("click", function(){
+  //document.getElementById('container').classList.remove('active');
   //document.querySelector(".js-container").innerHTML = '';
-  console.log(document.getElementById('container').classList);
-});
+  //console.log(document.getElementById('container').classList);
+//});
 
 //do the data stuff with the api
 
@@ -55,17 +55,18 @@ function pushtoDOM(input){
   });
   //take values in ImageUrls and iterate over them, displaying them on the dom in a row
   for(i = 0; i <= imageArray.length; i++){
+    //if (document.getElementById("container").className = "active"){
     (function(i){
         setTimeout(function(){
             console.log(document.getElementById("container").className);
             //if classname is active
-            if (document.getElementById("container").className = "active"){
             //clear innerHtml
             container.innerHTML = '';
             //push imageurls[i] to container
             container.innerHTML = "<img src=\"" + imageArray[i] + "\">";
-        }}, 7000 * i);
+        }, 7000 * i);
     }(i));
+//}
 }
 }
 
