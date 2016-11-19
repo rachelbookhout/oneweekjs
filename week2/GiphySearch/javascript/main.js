@@ -1,8 +1,10 @@
 //grab the input
 
 document.querySelector(".js-go").addEventListener("click", function(){
-  var container = document.querySelector(".js-container");
-  container.innerHTML = '';
+  var node = document.getElementsByClassName("js-container")[0];
+  while (node.hasChildNodes()) {
+    node.removeChild(node.firstChild);
+  }
   var input = document.querySelector("input").value;
   searchGiphy(input);
 });
@@ -10,10 +12,12 @@ document.querySelector(".js-go").addEventListener("click", function(){
 
 document.querySelector(".js-userinput").addEventListener("keyup", function(e){
   var input = document.querySelector("input").value;
-  var container = document.querySelector(".js-container");
   if(e.which === 13){
-    container.innerHTML = '';
-    searchGiphy(input);
+    var node = document.getElementsByClassName("js-container")[0];
+    while (node.hasChildNodes()) {
+      node.removeChild(node.firstChild);
+    }
+  searchGiphy(input);
   }
 });
 
