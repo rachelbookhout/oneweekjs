@@ -18,8 +18,8 @@ document.querySelector(".js-userinput").addEventListener("keyup", function(e){
 //add a function when hitting the stop button
 document.querySelector("#stop").addEventListener("click", function(){
   document.getElementById('container').classList.remove('active');
-  document.querySelector(".js-container").innerHTML = '';
-
+  //document.querySelector(".js-container").innerHTML = '';
+  console.log(document.getElementById('container').classList);
 });
 
 //do the data stuff with the api
@@ -57,16 +57,14 @@ function pushtoDOM(input){
   for(i = 0; i <= imageArray.length; i++){
     (function(i){
         setTimeout(function(){
-            console.log(imageArray[0]);
+            console.log(document.getElementById("container").className);
             //if classname is active
             if (document.getElementById("container").className = "active"){
             //clear innerHtml
             container.innerHTML = '';
-            console.log(container.innerHtml);
             //push imageurls[i] to container
             container.innerHTML = "<img src=\"" + imageArray[i] + "\">";
-            console.log(container.innerHTML);
-        }}, 10000 * i);
+        }}, 7000 * i);
     }(i));
 }
 }
