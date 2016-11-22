@@ -57,6 +57,9 @@ SoundCloudAPI.renderTracks = function(tracks){
    content.appendChild(header);
     button.appendChild(icon);
     button.appendChild(buttonText);
+    button.addEventListener('click', function(){
+        SoundCloudAPI.getEmbed(track.permalink_url);
+    })
     card.appendChild(imageDiv);
     card.appendChild(content);
     card.appendChild(button);
@@ -67,6 +70,23 @@ SoundCloudAPI.renderTracks = function(tracks){
 }
 
 
+SoundCloudAPI.getEmbed = function(trackUrl){
+  SC.oEmbed(trackUrl, {
+  auto_play: true
+}).then(function(embed){
+  console.log('oEmbed response: ', embed);
 
+  var sideBar = document.querySelector('.js-playlist');
+  var box = document.createElement('div');
+  box.innerHTML = embed.html;
+  sideBar.insertBefore(box, sideBar.firstChild);
+  localStorage.setItem("key", sideBar.innerHTML);
+});
+}
+
+var sideBar = document.querySelector('.js-playlist');
+sideBar.innerHTML = localStorage.getItem("key");
 
 //add to playlist and play
+
+
