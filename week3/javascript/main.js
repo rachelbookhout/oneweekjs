@@ -12,7 +12,6 @@ UI.EnterPress = function(){
     var input = document.querySelector(".input-search").value;
     if (e.which == 13){
           SoundCloudAPI.getTrack(input);
-
     }
   })
 }
@@ -31,11 +30,9 @@ SoundCloudAPI.init = function(){
 SoundCloudAPI.init();
 
 SoundCloudAPI.getTrack = function(inputValue){
-  console.log("I'm in GetTrack:" + inputValue);
   SC.get('/tracks', {
     q: inputValue
     }).then(function(tracks) {
-    console.log(tracks);
     SoundCloudAPI.renderTracks(tracks);
   });
 }
@@ -44,6 +41,9 @@ SoundCloudAPI.getTrack = function(inputValue){
 //SoundCloudAPI.getTrack("Rilo Kiley");
 
 SoundCloudAPI.renderTracks = function(tracks){
+  // remove the previous tracks within the div
+  var searchResults = document.querySelector(".js-search-results");
+  searchResults.innerHTML = '';
   tracks.forEach(function(track){
 
     var card = document.createElement('div');
@@ -84,7 +84,6 @@ SoundCloudAPI.renderTracks = function(tracks){
     card.appendChild(content);
     card.appendChild(button);
 
-    var searchResults = document.querySelector(".js-search-results");
     searchResults.appendChild(card);
   });
 
