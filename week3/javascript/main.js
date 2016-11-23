@@ -26,8 +26,6 @@ UI.ClickClear = function(){
         sideBar.removeChild(sideBar.firstChild);
       }
       localStorage.removeItem("key");
-
-  // go through the dom clean it
   })
 }
 
@@ -116,6 +114,7 @@ SoundCloudAPI.getEmbed = function(trackUrl){
 
 var sideBar = document.querySelector('.js-playlist');
 sideBar.innerHTML = localStorage.getItem("key");
+
 
 
 

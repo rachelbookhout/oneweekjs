@@ -27,6 +27,20 @@ html, body {
 	z-index: 1;
 }
 
+#soundcloud-player .clear-div {
+	width: 20%;
+	height: 10%;
+	background-color: #292929;
+	overflow: auto;
+
+	position: fixed;
+	left: 0;
+	top: 0;
+	min-width: 200px;
+	z-index: 1;
+}
+
+
 #soundcloud-player .col-right {
 	width: 100%;
 	height: 100%;
@@ -63,4 +77,9 @@ html, body {
 #soundcloud-player .search-results {
 	justify-content: center;
     margin-top: 30px;
+}
+
+.clear{
+	margin-top: 10%;
+	margin-left: 25%;
 }
