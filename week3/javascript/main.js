@@ -1,18 +1,24 @@
 //search
 var UI = {};
-UI.EnterPress = function(){
+UI.SubmitClick = function(){
   document.querySelector('.js-submit').addEventListener("click", function(){
     var input = document.querySelector(".input-search").value;
     SoundCloudAPI.getTrack(input);
 
   })
 }
-UI.SubmitClick = function(){
+UI.EnterPress = function(){
+  document.querySelector('.input-search').addEventListener("keyup", function(e){
+    var input = document.querySelector(".input-search").value;
+    if (e.which == 13){
+          SoundCloudAPI.getTrack(input);
 
+    }
+  })
 }
 
+UI.SubmitClick();
 UI.EnterPress();
-
 //query soundcloud api
 var SoundCloudAPI = {};
 
