@@ -1,5 +1,7 @@
-//search
 var UI = {};
+var SoundCloudAPI = {};
+
+
 UI.SubmitClick = function(){
   document.querySelector('.js-submit').addEventListener("click", function(){
     var input = document.querySelector(".input-search").value;
@@ -16,10 +18,22 @@ UI.EnterPress = function(){
   })
 }
 
+UI.ClickClear = function(){
+
+  document.querySelector('.clear').addEventListener("click", function(){
+      var sideBar = document.querySelector('.js-playlist');
+      while (sideBar.hasChildNodes()) {
+        sideBar.removeChild(sideBar.firstChild);
+      }
+      localStorage.removeItem("key");
+
+  // go through the dom clean it
+  })
+}
+
 UI.SubmitClick();
 UI.EnterPress();
-//query soundcloud api
-var SoundCloudAPI = {};
+UI.ClickClear();
 
 SoundCloudAPI.init = function(){
   SC.initialize({
@@ -37,11 +51,9 @@ SoundCloudAPI.getTrack = function(inputValue){
   });
 }
 
-//put the value into this function
-//SoundCloudAPI.getTrack("Rilo Kiley");
 
 SoundCloudAPI.renderTracks = function(tracks){
-  // remove the previous tracks within the div
+
   var searchResults = document.querySelector(".js-search-results");
   searchResults.innerHTML = '';
   tracks.forEach(function(track){
