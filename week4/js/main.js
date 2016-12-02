@@ -28,7 +28,7 @@ function showInfo(data, tabletop) {
     obj = [data.Department, Number(data.Amount), get_random_color() ,data.Department];
     dataSet.push(obj);
   })
-  dataSet.unshift(['Department', 'Amount', { role: 'style' }, { role: 'annotation'}])
+  dataSet.unshift(['Department', 'Amount in Billions', { role: 'style' }, { role: 'annotation'}])
   drawChart(dataSet);
 }
 
